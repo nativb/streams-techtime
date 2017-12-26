@@ -6,15 +6,17 @@ const fs = require('fs');
 const {parseString} = require('xml2js');
 
 // count the total number of pages
-const total = 0;
+let total = 0;
 
 const files = process.argv.splice(2);
 
 // to display the time taken to process all files
 console.time('parsing time');
-parse();
 
-function parse (err) {
+//call parse which will load
+loadFiles();
+
+function loadFiles () {
   const file = files.shift();
 
   // if no more files -> display info and exit
@@ -24,14 +26,17 @@ function parse (err) {
     return
   }
 
-  console.log('parsing', file);
+  console.log('loading', file);
 
   fs.readFile(file, function (err, data) {
     if (err) {
       throw err
     }
 
-    parseString(data);
-    parse();
+    //parseString(data);
+
+		total++;
+
+    loadFiles();
   })
 }

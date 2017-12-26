@@ -1,5 +1,5 @@
 {
-  "name": "stressor-slow",
+  "name": "stressor-fast",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,6 +15,9 @@
   "license": "ISC",
   "dependencies": {
     "climem": "^1.0.0",
-    "xml2js": "^0.4.16"
+    "gzip": "^0.1.0",
+    "pump": "^2.0.0",
+    "saxophonist": "^1.0.0",
+    "zlib": "^1.0.5"
   }
 }
